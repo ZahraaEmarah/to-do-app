@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { AddForm } from './AddForm'
 import { v4 } from 'uuid';
 import { TasksList } from './TasksList';
+import { Filters } from './Filters';
 v4();
 
 export const Wrapper = () => {
@@ -23,7 +24,8 @@ export const Wrapper = () => {
                                     <u>My Todo-s</u>
                                 </p>
                                 <AddForm addTask={addTask} />
-                                <hr class="my-4"></hr>
+                                <hr className="my-4"></hr>
+                                <Filters/>
                                 <TasksList tasks={tasks} />
                             </div>
                         </div>

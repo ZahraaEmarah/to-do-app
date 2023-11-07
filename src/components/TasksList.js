@@ -1,17 +1,10 @@
 import React from 'react'
 
-export const TasksList = (props) => {
+import { Task } from './Task';
 
-    const taskList = props.tasks.map(t => {
-        return(
-            <li key={t.id}>
-                <input type='checkbox' value={t.completed}/>
-                {t.task}
-            </li>
-        )
-    });
-    
+export const TasksList = (props) => {
+    const taskList = props.tasks.map((t, i) => <Task key={i} id={t.id} completed={t.completed} task={t.task} />);
     return (
-        <ul>{taskList}</ul>
+        <div>{taskList}</div>
     )
 }

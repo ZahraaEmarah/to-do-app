@@ -5,7 +5,6 @@ export const AddForm = ({ addTask }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(value);
         addTask(value);
         setValue("");
     }
@@ -15,18 +14,18 @@ export const AddForm = ({ addTask }) => {
     }
 
     return (
-        <div class="pb-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex flex-row align-items-center">
-                        <input type="text" className="form-control form-control-lg" id="exampleFormControlInput1"
+        <form className="pb-2" onSubmit={handleSubmit}>
+            <div className="card">
+                <div className="card-body">
+                    <div className="d-flex flex-row align-items-center">
+                        <input type="text" className="form-control form-control-lg" value={value} id="exampleFormControlInput1"
                             placeholder="Add new..." onChange={handleChange}/>
                         <div>
-                            <button type="button" className="btn btn-primary" onClick={handleSubmit}>Add</button>
+                            <button type="submit" className="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
