@@ -29,7 +29,6 @@ export const Wrapper = () => {
         }
         try {
             fetchData();
-            throw new Error()
         } catch (error) {
             showErrorMessage();
         }
