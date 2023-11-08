@@ -13,6 +13,12 @@ export const Task = (props) => {
         props.handleEdit(props.id, props.task, checked, props.userId)
     }
 
+    const deleteClicked = async () => {
+        setLoader(true);
+        await props.handleDelete(props.id);
+        setLoader(false);
+    }
+
     return (
         <div>
             <ul className="list-group list-group-horizontal rounded-0 bg-transparent">
@@ -27,7 +33,7 @@ export const Task = (props) => {
                     <div className="d-flex flex-row justify-content-end mb-1">
                         {   isLoading? <Loader />: ""   }
                         <a href="#!" className="text-info" data-mdb-toggle="tooltip" title="Edit task" onClick={() => setIsEditing(true)}><FontAwesomeIcon className='me-3' icon={faPenToSquare} /></a>
-                        <a href="#!" className="text-danger" data-mdb-toggle="tooltip" title="Delete task"><FontAwesomeIcon icon={faTrash} onClick={() => props.handleDelete(props.id)} /></a>
+                        <a href="#!" className="text-danger" data-mdb-toggle="tooltip" title="Delete task"><FontAwesomeIcon icon={faTrash} onClick={deleteClicked} /></a>
                     </div>
                 </li>
             </ul>

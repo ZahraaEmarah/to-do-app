@@ -21,8 +21,10 @@ export const Wrapper = () => {
     }, []);
 
     const handleAdd = async (task) => {
+        setLoader(true);
         const response = await addTask(task);
         setTasks([...tasks, response.data]);
+        setLoader(false);
     }
 
     const handleEdit = async (id, task, isCompleted, userId) => {
